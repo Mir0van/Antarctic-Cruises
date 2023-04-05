@@ -1,0 +1,283 @@
+.main-nav {
+  display: flex;
+  justify-content: space-between;
+  column-gap: 45px;
+  position: relative;
+
+  @include vp-767 {
+    align-items: center;
+  }
+}
+
+.is-open .main-nav {
+  @include vp-767 {
+    align-items: start;
+    flex-wrap: wrap;
+    position: fixed;
+    gap: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 88.8%;
+    padding-top: 16px;
+    z-index: 10;
+    overflow-y: scroll;
+    background-color: $color-text-secondary;
+
+    .main-nav__list {
+      display: block;
+      width: 100%;
+      height: calc(100% - 30px);
+      transform: translateY(0);
+      order: 3;
+    }
+
+    .main-nav__logo-wrapper {
+      margin-left: 15px;
+      margin-top: 4px;
+    }
+
+    .main-nav__logo-link svg {
+      fill: $color-brand
+    }
+
+    .main-nav__toogle {
+      order: 2;
+      margin-left: auto;
+      margin-right: 10px;
+
+      @include hover {
+        .main-nav__toogle-icon {
+          background-color: transparent;
+
+          &::before,
+          &::after {
+            background-color: rgba($color-text, 60%);
+          }
+        }
+      }
+
+      &:focus-visible {
+        outline: 1px solid $color-text;
+        outline-offset: -3px;
+        border-radius: 8px;
+      }
+    }
+
+    .main-nav__toogle-icon {
+      background-color: transparent;
+      transition: all $trans-default;
+
+      &::before,
+      &::after {
+        width: 18px;
+        height: 2px;
+        background-color: $color-text;
+        left: calc(50% - 9px);
+        transition: all $trans-default;
+      }
+
+      &::before {
+        top: 14px;
+        transform: rotate(45deg);
+      }
+
+      &::after {
+        bottom: 14px;
+        transform: rotate(-45deg);
+      }
+    }
+
+    .main-nav__logo-link {
+      @include hover {
+        svg {
+          fill: rgba($color-text, 60%)
+        }
+      }
+
+      &:focus-visible {
+        outline: 1px solid $color-text;
+      }
+    }
+  }
+}
+
+.main-nav__logo-wrapper {
+  z-index: 2;
+}
+
+.main-nav__logo-link {
+  display: block;
+
+  svg {
+    display: block;
+  }
+
+  @include hover {
+    svg {
+      fill: rgba($color-text-secondary, 80%)
+    }
+  }
+
+  &:focus-visible {
+    outline: 1px solid $color-text-secondary;
+    border-radius: 4px;
+    outline-offset: 4px;
+  }
+
+  @include vp-1023 {
+    svg {
+      width: 38px;
+      height: 20px;
+    }
+  }
+
+  @include vp-767 {
+    svg {
+      width: 42px;
+      height: 22px;
+    }
+  }
+}
+
+.main-nav__list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  display: flex;
+  justify-content: end;
+  flex-wrap: wrap;
+  column-gap: 34px;
+  z-index: 1;
+
+  @include vp-1023 {
+    column-gap: 24px;
+    transform: translateY(-5px);
+  }
+
+  @include vp-767 {
+    display: none;
+    padding: 30px 28px 46px 16px;
+  }
+}
+
+.main-nav__item:not(:last-child) {
+  @include vp-767 {
+    margin-bottom: 10px;
+  }
+}
+
+.main-nav__link {
+  @include font-values(500, 16px, 1.25, $color-text-secondary);
+  padding: 10px 0;
+  display: block;
+
+  // багается каскад без этого
+  @media (min-width: $vp-768) {
+    @include hover {
+      color: rgba($color-text-secondary, 80%);
+    }
+  }
+
+  &:focus-visible {
+    outline: 1px solid $color-text-secondary;
+    border-radius: 4px;
+    outline-offset: 2px;
+  }
+
+  @include vp-1023 {
+    @include font-values(500, 14px, 1.214, $color-text-secondary);
+    padding: 6px 0;
+  }
+
+  @include vp-767 {
+    font-size: 18px;
+    line-height: 1.222;
+    color: $color-text;
+    padding: 9px;
+
+    @include hover {
+      color: rgba($color-text, 60%);
+    }
+
+    &:focus-visible {
+      outline: 1px solid $color-text;
+      border-radius: 4px;
+      outline-offset: 2px;
+    }
+  }
+}
+
+.main-nav__toogle {
+  display: none;
+
+  @include vp-767 {
+    position: relative;
+    display: block;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    padding: 8px;
+    margin: 0;
+    width: 40px;
+    height: 30px;
+    transform: translate(8px, 0);
+
+    @include hover {
+      .main-nav__toogle-icon {
+        background-color: rgba($color-text-secondary, 70%);
+
+        &::before,
+        &::after {
+          background-color: rgba($color-text-secondary, 70%);
+        }
+      }
+    }
+
+    @include active {
+      .main-nav__toogle-icon {
+        background-color: rgba($color-text-secondary, 30%);
+
+        &::before,
+        &::after {
+          background-color: rgba($color-text-secondary, 30%);
+        }
+      }
+    }
+
+    &:focus-visible {
+      outline: 1px solid $color-text-secondary;
+      border-radius: 4px;
+      outline-offset: 2px;
+    }
+  }
+}
+
+.main-nav__toogle-icon {
+  @include vp-767 {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: $color-text-secondary;
+    transition: background-color $trans-default;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      width: 24px;
+      height: 2px;
+      background-color: $color-text-secondary;
+      left: 8px;
+      transition: all $trans-default;
+    }
+
+    &::before {
+      top: 8px;
+    }
+
+    &::after {
+      bottom: 8px;
+    }
+  }
+}
