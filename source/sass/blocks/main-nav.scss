@@ -38,7 +38,7 @@
     }
 
     .main-nav__logo-link svg {
-      fill: $color-brand
+      fill: $color-brand;
     }
 
     .main-nav__toogle {
@@ -91,7 +91,7 @@
     .main-nav__logo-link {
       @include hover {
         svg {
-          fill: rgba($color-text, 60%)
+          fill: rgba($color-text, 60%);
         }
       }
 
@@ -115,7 +115,7 @@
 
   @include hover {
     svg {
-      fill: rgba($color-text-secondary, 80%)
+      fill: rgba($color-text-secondary, 80%);
     }
   }
 
@@ -186,13 +186,13 @@
   }
 
   @include vp-1023 {
-    @include font-values(500, 14px, 1.214, $color-text-secondary);
+    @include font-values(500, 14px, 1.21, $color-text-secondary);
     padding: 6px 0;
   }
 
   @include vp-767 {
     font-size: 18px;
-    line-height: 1.222;
+    line-height: 1.22;
     color: $color-text;
     padding: 9px;
 

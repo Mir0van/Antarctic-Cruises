@@ -26,9 +26,9 @@ window.addEventListener('DOMContentLoaded', () => {
     const burger = new Burger();
     burger.init();
 
-    window.addEventListener('click', (evt) => {
-      console.log(evt.target);
-    });
+    // window.addEventListener('click', (evt) => {
+    //   console.log(evt.target);
+    // });
 
   });
 });
