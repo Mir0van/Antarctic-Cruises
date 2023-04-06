@@ -1,10 +1,12 @@
 .btn {
+  @include font-values(600, 14px, 1.5);
   display: inline-flex;
-  padding: 10px 20px;
+  justify-content: center;
+  padding: 9px 20px;
 
-  color: $color-default-white;
+  color: $color-brand;
 
-  background-color: $color-neon-blue;
+  background-color: $color-text-secondary;
   border: none;
   cursor: pointer;
 

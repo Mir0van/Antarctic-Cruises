@@ -1,0 +1,179 @@
+.cruises {
+  padding-top: 85px;
+  padding-bottom: 120px;
+
+  @include vp-1023 {
+    padding-top: 90px;
+    padding-bottom: 100px;
+  }
+
+  @include vp-767 {
+    padding-top: 56px;
+    padding-bottom: 65px;
+  }
+}
+
+.cruises__wrapper {
+  h2 {
+    @include font-values(600, 28px, 1.5);
+    text-align: center;
+    margin: 0;
+    margin-bottom: 49px;
+
+    @include vp-1023 {
+      font-size: 26px;
+    }
+
+    @include vp-767 {
+      font-size: 24px;
+      margin-bottom: 30px;
+    }
+  }
+}
+
+.cruises__list {
+  margin: 0;
+  padding: 0 15px;
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 30px;
+
+  @include vp-767 {
+    padding: 0 10px;
+  }
+}
+
+.cruises__item {
+  position: relative;
+  background-color: $color-brand;
+  height: 386px;
+
+  &:hover {
+    .cruises__description-wrapper {
+      opacity: 1;
+      pointer-events: auto;
+    }
+  }
+
+  &:focus-within {
+    .cruises__description-wrapper {
+      opacity: 1;
+      pointer-events: auto;
+    }
+  }
+}
+
+.cruises__image-wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% center;
+
+    @include vp-767 {
+      object-position: 50% 60%;
+    }
+  }
+
+  @include vp-767 {
+    &--astory {
+      img {
+        object-position: 50% 20%;
+      }
+    }
+  }
+}
+
+.cruises__intro-title {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  padding: 24px 30px;
+  background-image: linear-gradient(180deg, rgba($color-brand, 0%) 50%, $color-brand 100%);
+  display: grid;
+  overflow-y: auto;
+
+  @include vp-1023 {
+    padding: 28px 35px;
+  }
+
+  @include vp-767 {
+    padding: 18px 25px;
+  }
+
+  span {
+    @include font-values(500, 18px, 1.5, $color-text-secondary);
+    align-self: end;
+  }
+}
+
+.cruises__description-wrapper {
+  position: relative;
+  background-color: $color-brand;
+  padding: 28px 23px 35px 25px;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  height: 100%;
+  opacity: 0;
+  transition: opacity $trans-default;
+  pointer-events: none;
+
+  @include vp-1023 {
+    padding: 28px 33px 35px 35px;
+  }
+
+  @include vp-767 {
+    padding: 28px 23px 35px 25px;
+  }
+
+  h3 {
+    @include font-values(500, 18px, 1.5, $color-text-secondary);
+    margin: 0;
+    margin-bottom: 15px;
+  }
+}
+
+.cruises__description {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 5px;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  dt {
+    @include font-values(500, 14px, 1.4, $color-text-secondary);
+    margin: 0;
+  }
+
+  dd {
+    @include font-values(400, 14px, 1.4, $color-text-tertiary);
+    margin: 0;
+    margin-bottom: 13px;
+  }
+
+  dd:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+.cruises__btn {
+  width: calc(100% - 2px);
+  align-self: end;
+
+  &:focus-visible {
+    outline: 1px solid $color-text-secondary;
+    border-radius: 4px;
+    outline-offset: 2px;
+  }
+}
