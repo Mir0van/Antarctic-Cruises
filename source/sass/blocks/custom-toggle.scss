@@ -3,22 +3,13 @@
   font-size: 18px;
   line-height: 27px;
   font-weight: 300;
+  margin-bottom: 30px;
 
   display: flex;
-  width: 500px;
-  padding: 14px 0 10px 36px;
+  width: auto;
 
   @media screen and (max-width: 767px) {
-    padding: 14px 0 10px 0;
     width: 100%;
-  }
-
-  &:last-of-type {
-    padding: 14px 0 58px 36px;
-
-    @media screen and (max-width: 767px) {
-      padding: 14px 0 58px 0;
-    }
   }
 
   input {
@@ -34,7 +25,8 @@
   label {
     position: relative;
 
-    padding-left: 52px;
+    display: flex;
+    align-items: center;
 
     cursor: pointer;
 
@@ -42,20 +34,41 @@
       margin-bottom: 0;
       margin-left: 0;
     }
+
+    @include hover {
+      .custom-toggle__icon {
+        outline: 1px solid $color-text-secondary;
+        border-radius: 4px;
+        outline-offset: 1px;
+      }
+    }
   }
 
   &--checkbox {
+    input[type="checkbox"]:focus-visible + .custom-toggle__icon {
+      outline: 1px solid $color-text-secondary;
+      border-radius: 4px;
+      outline-offset: 1px;
+    }
+
     .custom-toggle__icon {
-      position: absolute;
-      top: 0;
-      left: 0;
+      position: relative;
+      margin-right: 5px;
 
-      width: 28px;
-      height: 28px;
+      width: 18px;
+      height: 18px;
 
-      border: 1.5px solid #2c39f2;
+      background-color: $color-text-secondary;
 
       transition: border 0.3s ease;
+
+      flex-shrink: 0;
+
+      @include vp-767 {
+        width: 20px;
+        height: 20px;
+        margin-right: 8px;
+      }
 
       &::before {
         content: "";
@@ -63,14 +76,10 @@
         top: 50%;
         left: 50%;
 
-        width: 20px;
-        height: 20px;
-
-        background-color: rgba(#2c39f2, 0);
+        width: 10px;
+        height: 6px;
 
         transform: translate(-50%, -50%);
-
-        transition: background-color 0.3s ease;
       }
     }
   }
@@ -109,23 +118,28 @@
   }
 
   input:checked + .custom-toggle__icon {
-    border: 1.5px solid #2c39f2;
-
     &::before {
-      background-color: #2c39f2;
+      border: 1px solid $color-brand;
+      border-top: none;
+      border-right: none;
+      transform: translate(-4px, -5px) rotate(-45deg);
     }
   }
 
   &.is-invalid {
     label span {
-      color: #ff1553;
+      color: $color-text-secondary;
     }
   }
 
   .input-message {
     position: absolute;
-    right: 0;
-    bottom: -5px;
+    left: 0;
+    bottom: -16px;
+
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 1.3;
 
     &.is-invalid {
       color: #ff0000;

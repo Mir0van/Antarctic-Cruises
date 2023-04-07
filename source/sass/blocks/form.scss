@@ -1,0 +1,18 @@
+.form__btn {
+  width: 100%;
+  padding: 10px 20px;
+}
+
+.form__input-mail {
+  @include vp-767 {
+    margin-bottom: 18px;
+  }
+}
+
+.form__checkbox-description {
+  @include font-values(400, 10px, 1.3, $color-text-secondary);
+
+  @include vp-767 {
+    line-height: 1.2;
+  }
+}

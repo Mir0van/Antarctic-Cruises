@@ -170,10 +170,4 @@
 .cruises__btn {
   width: calc(100% - 2px);
   align-self: end;
-
-  &:focus-visible {
-    outline: 1px solid $color-text-secondary;
-    border-radius: 4px;
-    outline-offset: 2px;
-  }
 }
