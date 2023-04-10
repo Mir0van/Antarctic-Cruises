@@ -27,7 +27,7 @@
     .main-nav__list {
       display: block;
       width: 100%;
-      height: calc(100% - 30px);
+      min-height: 100%;
       transform: translateY(0);
       order: 3;
     }
