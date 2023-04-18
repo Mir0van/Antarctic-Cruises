@@ -1610,6 +1610,9 @@ button,
   -webkit-column-gap: 17px;
   -moz-column-gap: 17px;
   column-gap: 17px;
+  -ms-flex-item-align: start;
+  -ms-grid-row-align: start;
+  align-self: start;
 }
 
 .main-footer__link {
@@ -1651,6 +1654,9 @@ button,
   -webkit-transform: translateX(8px);
   -ms-transform: translateX(8px);
   transform: translateX(8px);
+  -ms-flex-item-align: start;
+  -ms-grid-row-align: start;
+  align-self: start;
 }
 
 .main-footer__link-social {
@@ -1778,7 +1784,7 @@ button,
   color: #011c40;
   text-align: center;
   margin: 0;
-  margin-bottom: 49px;
+  margin-bottom: 50px;
 }
 
 .cruises__list {
@@ -1787,14 +1793,13 @@ button,
   list-style-type: none;
   display: -ms-grid;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 30px;
 }
 
 .cruises__item {
   position: relative;
   background-color: #011c40;
-  height: 386px;
 }
 
 .cruises__item:hover .cruises__description-wrapper {
@@ -1805,6 +1810,13 @@ button,
 .cruises__item:focus-within .cruises__description-wrapper {
   opacity: 1;
   pointer-events: auto;
+}
+
+.cruises__item::before {
+  content: "";
+  display: block;
+  width: 100%;
+  padding-top: 148.3%;
 }
 
 .cruises__image-wrapper {
@@ -1851,7 +1863,11 @@ button,
 }
 
 .cruises__description-wrapper {
-  position: relative;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
   background-color: #011c40;
   padding: 28px 23px 35px 25px;
   display: -ms-grid;
@@ -1890,6 +1906,7 @@ button,
   line-height: 1.4;
   color: #f9fbfd;
   margin: 0;
+  word-break: break-word;
 }
 
 .cruises__description dd {
@@ -1899,6 +1916,7 @@ button,
   color: #d8d8d9;
   margin: 0;
   margin-bottom: 13px;
+  word-break: break-word;
 }
 
 .cruises__description dd:last-of-type {
@@ -1977,6 +1995,9 @@ button,
   width: 403px;
   -ms-flex-negative: 0;
   flex-shrink: 0;
+  -ms-flex-item-align: start;
+  -ms-grid-row-align: start;
+  align-self: start;
 }
 
 .reservation__form > p {
@@ -2002,7 +2023,7 @@ button,
 
 .contacts {
   padding-top: 120px;
-  padding-bottom: 122px;
+  padding-bottom: 121px;
 }
 
 .contacts__wrapper {
@@ -2318,6 +2339,10 @@ button,
     font-size: 26px;
   }
 
+  .cruises__item::before {
+    padding-top: 125%;
+  }
+
   .cruises__intro-title {
     padding: 28px 35px;
   }
@@ -2360,6 +2385,9 @@ button,
   .reservation__form {
     width: 72.41%;
     max-width: 470px;
+    -ms-flex-item-align: center;
+    -ms-grid-row-align: center;
+    align-self: center;
   }
 
   .contacts {
@@ -2749,6 +2777,10 @@ button,
 
   .cruises__list {
     padding: 0 10px;
+  }
+
+  .cruises__item::before {
+    padding-top: 142.97%;
   }
 
   .cruises__image-wrapper img {
