@@ -2337,6 +2337,7 @@ button,
 
   .cruises__wrapper h2 {
     font-size: 26px;
+    margin-bottom: 49px;
   }
 
   .cruises__item::before {
