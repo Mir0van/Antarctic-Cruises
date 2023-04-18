@@ -101,10 +101,12 @@
   background-color: $color-brand;
   width: 403px;
   flex-shrink: 0;
+  align-self: start;
 
   @include vp-1023 {
     width: 72.41%;
     max-width: 470px;
+    align-self: center;
   }
 
   @include vp-767 {
